@@ -26,10 +26,7 @@
       content-class="bg-grey-1"
     >
       <q-list>
-        <q-item-label
-          header
-          class="text-grey-8"
-        >
+        <q-item-label header class="text-grey-8">
           Essential Links
         </q-item-label>
         <EssentialLink
@@ -48,6 +45,8 @@
 
 <script lang="ts">
 import EssentialLink from 'components/EssentialLink.vue'
+
+import { defineComponent, ref } from '@vue/composition-api'
 
 const linksData = [
   {
@@ -92,18 +91,16 @@ const linksData = [
     icon: 'favorite',
     link: 'https://awesome.quasar.dev'
   }
-];
-
-import { defineComponent, ref } from '@vue/composition-api';
+]
 
 export default defineComponent({
   name: 'MainLayout',
   components: { EssentialLink },
   setup() {
-    const leftDrawerOpen = ref(false);
-    const essentialLinks = ref(linksData);
+    const leftDrawerOpen = ref(false)
+    const essentialLinks = ref(linksData)
 
-    return {leftDrawerOpen, essentialLinks}
+    return { leftDrawerOpen, essentialLinks }
   }
-});
+})
 </script>
