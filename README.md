@@ -1,3 +1,5 @@
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+
 # Babbage (babbage)
 
 Half-serious Math exercises cross-platform app to hopefully 🙏 help the lagging Math and science skills of the Filipino students.
