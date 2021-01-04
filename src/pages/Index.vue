@@ -1,15 +1,10 @@
-<template>
-  <q-page class="row items-center justify-evenly">
-    <example-component
-      title="Example component"
-      active
-      :todos="todos"
-      :meta="meta"
-    ></example-component>
-  </q-page>
-</template>
-
 <script lang="ts">
+/**
+ * @author Richard Michael Coo <rmcoo@cpu.edu.ph>
+ * @copyright 2021 Richard Michael Coo
+ * @license MIT
+ */
+
 import { Todo, Meta } from 'components/models'
 import ExampleComponent from 'components/CompositionComponent.vue'
 import { defineComponent, ref } from '@vue/composition-api'
@@ -47,3 +42,14 @@ export default defineComponent({
   }
 })
 </script>
+
+<template>
+  <q-page class="row items-center justify-evenly">
+    <example-component
+      title="Example component"
+      active
+      :todos="todos"
+      :meta="meta"
+    ></example-component>
+  </q-page>
+</template>

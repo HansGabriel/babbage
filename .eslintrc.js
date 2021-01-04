@@ -52,7 +52,9 @@ module.exports = {
     'prettier',
     'prettier/@typescript-eslint',
     'prettier/vue',
-    'prettier/unicorn'
+    'prettier/unicorn',
+
+    'plugin:eslint-comments/recommended'
   ],
 
   plugins: [
@@ -66,7 +68,9 @@ module.exports = {
     // https://github.com/typescript-eslint/typescript-eslint/issues/389#issuecomment-509292674
     // Prettier has not been included as plugin to avoid performance impact
     // add it as an extension for your IDE
-    'prettier'
+    // 'prettier',
+
+    'notice'
   ],
 
   globals: {
@@ -88,7 +92,7 @@ module.exports = {
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
 
     'no-var': 'error',
-    'prettier/prettier': 'error',
+    // 'prettier/prettier': 'error',
     'unicorn/filename-case': [
       'error',
       {
@@ -102,6 +106,15 @@ module.exports = {
         checkFilenames: false,
         ignore: [/^i18n$/]
       }
+    ],
+    'eslint-comments/no-unused-disable': 'error',
+    'eslint-comments/require-description': 'error',
+    'notice/notice': [
+      'error',
+      {
+        templateFile: 'copyright.js',
+        onNonMatchingHeader: 'replace'
+      }
     ]
   },
   overrides: [
@@ -113,6 +126,17 @@ module.exports = {
           {
             case: 'pascalCase'
           }
+        ],
+        'notice/notice': [
+          'error',
+          {
+            templateFile: 'copyright.js',
+            onNonMatchingHeader: 'report' // NOT WORKING
+          }
+        ],
+        'vue/component-tags-order': [
+          'error',
+          { order: ['script', 'template', 'style'] }
         ]
       }
     }

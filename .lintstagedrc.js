@@ -4,5 +4,5 @@ module.exports = {
       filename =>
         `pg_format -c backend/pg_format.conf '${filename}' -o ${filename}`
     ),
-  '**/*.!(sql)': 'prettier --write --ignore-unknown'
+  '**/*.!{sql,prettierignore}': 'prettier --write --ignore-unknown'
 }

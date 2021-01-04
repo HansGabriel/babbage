@@ -1,18 +1,10 @@
-<template>
-  <div>
-    <p>{{ title }}</p>
-    <ul>
-      <li v-for="todo in todos" :key="todo.id" @click="increment">
-        {{ todo.id }} - {{ todo.content }}
-      </li>
-    </ul>
-    <p>Count: {{ todoCount }} / {{ meta.totalCount }}</p>
-    <p>Active: {{ active ? 'yes' : 'no' }}</p>
-    <p>Clicks on todos: {{ clickCount }}</p>
-  </div>
-</template>
-
 <script lang="ts">
+/**
+ * @author Richard Michael Coo <rmcoo@cpu.edu.ph>
+ * @copyright 2021 Richard Michael Coo
+ * @license MIT
+ */
+
 import {
   defineComponent,
   PropType,
@@ -46,11 +38,11 @@ export default defineComponent({
       required: true
     },
     todos: {
-      type: (Array as unknown) as PropType<Todo[]>,
+      type: Array as PropType<Todo[]>,
       default: () => []
     },
     meta: {
-      type: (Object as unknown) as PropType<Meta>,
+      type: Object as PropType<Meta>,
       required: true
     },
     active: {
@@ -62,3 +54,17 @@ export default defineComponent({
   }
 })
 </script>
+
+<template>
+  <div>
+    <p>{{ title }}</p>
+    <ul>
+      <li v-for="todo in todos" :key="todo.id" @click="increment">
+        {{ todo.id }} - {{ todo.content }}
+      </li>
+    </ul>
+    <p>Count: {{ todoCount }} / {{ meta.totalCount }}</p>
+    <p>Active: {{ active ? 'yes' : 'no' }}</p>
+    <p>Clicks on todos: {{ clickCount }}</p>
+  </div>
+</template>

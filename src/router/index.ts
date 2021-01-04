@@ -1,5 +1,12 @@
+/**
+ * @author Richard Michael Coo <rmcoo@cpu.edu.ph>
+ * @copyright 2021 Richard Michael Coo
+ * @license MIT
+ */
+
 import { route } from 'quasar/wrappers'
-import VueRouter from 'vue-router'
+import VueRouter, { RouterMode } from 'vue-router'
+
 import routes from './routes'
 
 /*
@@ -17,7 +24,7 @@ export default route(function({ Vue }) {
     // Leave these as is and change from quasar.conf.js instead!
     // quasar.conf.js -> build -> vueRouterMode
     // quasar.conf.js -> build -> publicPath
-    mode: process.env.VUE_ROUTER_MODE,
+    mode: process.env.VUE_ROUTER_MODE as RouterMode,
     base: process.env.VUE_ROUTER_BASE
   })
 

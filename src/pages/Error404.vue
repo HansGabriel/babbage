@@ -1,3 +1,17 @@
+<script lang="ts">
+/**
+ * @author Richard Michael Coo <rmcoo@cpu.edu.ph>
+ * @copyright 2021 Richard Michael Coo
+ * @license MIT
+ */
+
+import { defineComponent } from '@vue/composition-api'
+
+export default defineComponent({
+  name: 'Error404'
+})
+</script>
+
 <template>
   <div
     class="fullscreen bg-blue text-white text-center q-pa-md flex flex-center"
@@ -23,11 +37,3 @@
     </div>
   </div>
 </template>
-
-<script lang="ts">
-import { defineComponent } from '@vue/composition-api'
-
-export default defineComponent({
-  name: 'Error404'
-})
-</script>

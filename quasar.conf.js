@@ -1,12 +1,12 @@
-/*
- * This file runs in a Node context (it's NOT transpiled by Babel), so use only
- * the ES6 features that are supported by your Node version. https://node.green/
+/**
+ * @author Richard Michael Coo <rmcoo@cpu.edu.ph>
+ * @copyright 2021 Richard Michael Coo
+ * @license MIT
  */
 
 // Configuration for your app
 // https://quasar.dev/quasar-cli/quasar-conf-js
-/* eslint-env node */
-/* eslint-disable @typescript-eslint/no-var-requires */
+// eslint-disable-next-line @typescript-eslint/no-var-requires -- It's JS
 const { configure } = require('quasar/wrappers')
 
 module.exports = configure(function(context) {

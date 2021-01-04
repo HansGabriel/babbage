@@ -1,3 +1,9 @@
+/**
+ * @author Richard Michael Coo <rmcoo@cpu.edu.ph>
+ * @copyright 2021 Richard Michael Coo
+ * @license MIT
+ */
+
 import { boot } from 'quasar/wrappers'
 import messages from 'src/i18n'
 import Vue from 'vue'
