@@ -1,4 +1,5 @@
-const { resolve } = require('path');
+const { resolve } = require('path')
+
 module.exports = {
   // https://eslint.org/docs/user-guide/configuring#configuration-cascading-and-hierarchy
   // This option interrupts the configuration hierarchy at this file
@@ -26,14 +27,18 @@ module.exports = {
 
   // Rules order is important, please avoid shuffling them
   extends: [
+    'standard-typescript',
+
     // Base ESLint recommended rules
-    // 'eslint:recommended',
+    'eslint:recommended',
 
     // https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin#usage
     // ESLint typescript rules
     'plugin:@typescript-eslint/recommended',
     // consider disabling this class of rules if linting takes too long
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
+
+    'plugin:unicorn/recommended',
 
     // Uncomment any of the lines below to choose desired strictness,
     // but leave only one uncommented!
@@ -46,7 +51,8 @@ module.exports = {
     // usage with Prettier, provided by 'eslint-config-prettier'.
     'prettier',
     'prettier/@typescript-eslint',
-    'prettier/vue'
+    'prettier/vue',
+    'prettier/unicorn'
   ],
 
   plugins: [
@@ -55,11 +61,12 @@ module.exports = {
 
     // https://eslint.vuejs.org/user-guide/#why-doesn-t-it-work-on-vue-file
     // required to lint *.vue files
-    'vue',
+    'vue'
 
     // https://github.com/typescript-eslint/typescript-eslint/issues/389#issuecomment-509292674
     // Prettier has not been included as plugin to avoid performance impact
     // add it as an extension for your IDE
+    // 'prettier'
   ],
 
   globals: {
@@ -73,14 +80,41 @@ module.exports = {
 
   // add your custom rules here
   rules: {
-    'prefer-promise-reject-errors': 'off',
-
     // TypeScript
-    quotes: ['warn', 'single', { avoidEscape: true }],
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
 
     // allow debugger during development only
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
-  }
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+
+    'no-var': 'error',
+    // 'prettier/prettier': 'error',
+    'unicorn/filename-case': [
+      'error',
+      {
+        case: 'kebabCase',
+        ignore: [/^quasar\.conf\.js$/]
+      }
+    ],
+    'unicorn/prevent-abbreviations': [
+      'error',
+      {
+        checkFilenames: false,
+        ignore: [/^i18n$/]
+      }
+    ]
+  },
+  overrides: [
+    {
+      files: ['*.vue'],
+      rules: {
+        'unicorn/filename-case': [
+          'error',
+          {
+            case: 'pascalCase'
+          }
+        ]
+      }
+    }
+  ]
 }
