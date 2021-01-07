@@ -1,6 +1,7 @@
 .DS_Store
 .thumbs.db
 node_modules
+src/server/db-types/*.ts
 
 # Quasar core related directories
 .quasar
