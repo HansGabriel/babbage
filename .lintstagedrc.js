@@ -1,8 +1,7 @@
 module.exports = {
-  '*.sql': filenames =>
+  '*.sql': (filenames) =>
     filenames.map(
-      filename =>
-        `pg_format -c backend/pg_format.conf '${filename}' -o ${filename}`
+      (filename) => `pg_format -c pg_format.conf '${filename}' -o ${filename}`
     ),
-  '**/*.!{sql,prettierignore}': 'prettier --write --ignore-unknown'
+  '**/*.!{sql,prettierignore}': 'prettier --write --ignore-unknown',
 }

@@ -1,0 +1,12 @@
+{
+  version: 1,
+  config: {
+    class: {
+      flyway_schema_history: {
+        tags: {
+          omit: true,
+        },
+      },
+    },
+  },
+}

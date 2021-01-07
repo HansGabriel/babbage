@@ -4,7 +4,13 @@
 
 Half-serious Math exercises cross-platform app to hopefully 🙏 help the lagging Math and science skills of the Filipino students.
 
-## Install the dependencies
+## Install needed software
+
+- Node.js >= v14.14.0
+  - It uses `fs.rmSync()` in a script, which was introduced in v14.14.0
+- pg_format
+
+## Install NPM dependencies
 
 ```bash
 npm install

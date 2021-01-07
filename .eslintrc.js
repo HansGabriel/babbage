@@ -18,11 +18,11 @@ module.exports = {
     project: resolve(__dirname, './tsconfig.json'),
     tsconfigRootDir: __dirname,
     ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
-    sourceType: 'module' // Allows for the use of imports
+    sourceType: 'module', // Allows for the use of imports
   },
 
   env: {
-    browser: true
+    browser: true,
   },
 
   // Rules order is important, please avoid shuffling them
@@ -50,11 +50,12 @@ module.exports = {
     // https://github.com/prettier/eslint-config-prettier#installation
     // usage with Prettier, provided by 'eslint-config-prettier'.
     'prettier',
+    'prettier/standard',
     'prettier/@typescript-eslint',
     'prettier/vue',
     'prettier/unicorn',
 
-    'plugin:eslint-comments/recommended'
+    'plugin:eslint-comments/recommended',
   ],
 
   plugins: [
@@ -70,7 +71,9 @@ module.exports = {
     // add it as an extension for your IDE
     // 'prettier',
 
-    'notice'
+    'notice',
+
+    'simple-import-sort',
   ],
 
   globals: {
@@ -79,7 +82,7 @@ module.exports = {
     __statics: true,
     process: true,
     Capacitor: true,
-    chrome: true
+    chrome: true,
   },
 
   // add your custom rules here
@@ -97,15 +100,15 @@ module.exports = {
       'error',
       {
         case: 'kebabCase',
-        ignore: [/^quasar\.conf\.js$/]
-      }
+        ignore: [/^quasar\.conf\.js$/],
+      },
     ],
     'unicorn/prevent-abbreviations': [
       'error',
       {
         checkFilenames: false,
-        ignore: [/^i18n$/]
-      }
+        ignore: [/^i18n$/],
+      },
     ],
     'eslint-comments/no-unused-disable': 'error',
     'eslint-comments/require-description': 'error',
@@ -113,32 +116,39 @@ module.exports = {
       'error',
       {
         templateFile: 'copyright.js',
-        onNonMatchingHeader: 'replace'
-      }
-    ]
+        onNonMatchingHeader: 'replace',
+      },
+    ],
+    'simple-import-sort/imports': 'error',
   },
   overrides: [
+    {
+      files: ['*.js'],
+      rules: {
+        '@typescript-eslint/no-var-requires': 'off',
+      },
+    },
     {
       files: ['*.vue'],
       rules: {
         'unicorn/filename-case': [
           'error',
           {
-            case: 'pascalCase'
-          }
+            case: 'pascalCase',
+          },
         ],
         'notice/notice': [
           'error',
           {
             templateFile: 'copyright.js',
-            onNonMatchingHeader: 'report' // NOT WORKING
-          }
+            onNonMatchingHeader: 'report', // NOT WORKING
+          },
         ],
         'vue/component-tags-order': [
           'error',
-          { order: ['script', 'template', 'style'] }
-        ]
-      }
-    }
-  ]
+          { order: ['script', 'template', 'style'] },
+        ],
+      },
+    },
+  ],
 }

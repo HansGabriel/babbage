@@ -7,3 +7,6 @@
 /src-ssr
 .eslintrc.js
 copyright.*
+scripts/
+src/sql/
+src/server/db-types
